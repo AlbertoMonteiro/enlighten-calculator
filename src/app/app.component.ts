@@ -42,22 +42,23 @@ export class AppComponent {
   calculate() {
     this.tomesNeeded = 0;
     this.scrollsNeeded = 0;
-    for (let i = this.force; i < this.wantTo; i++) {
+    const wantToRank = +this.wantTo;
+    for (let i = +this.force; i < wantToRank; i++) {
       this.tomesNeeded += this.values[i - 1][1];
     }
-    for (let i = this.spirit; i < this.wantTo; i++) {
+    for (let i = +this.spirit; i < wantToRank; i++) {
       this.tomesNeeded += this.values[i - 1][1];
     }
-    for (let i = this.mind; i < this.wantTo; i++) {
+    for (let i = +this.mind; i < wantToRank; i++) {
       this.scrollsNeeded += this.values[i - 1][1];
     }
-    for (let i = this.vision; i < this.wantTo; i++) {
+    for (let i = +this.vision; i < wantToRank; i++) {
       this.scrollsNeeded += this.values[i - 1][1];
     }
-    for (let i = this.heart; i < this.wantTo; i++) {
+    for (let i = +this.heart; i < wantToRank; i++) {
       this.scrollsNeeded += this.values[i - 1][1];
     }
-    for (let i = this.root; i < this.wantTo; i++) {
+    for (let i = +this.root; i < wantToRank; i++) {
       this.scrollsNeeded += this.values[i - 1][1];
     }
     this.remainingScrollsDays = (this.scrollsNeeded / SUNTRADAY).toFixed(0);
