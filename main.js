@@ -6450,22 +6450,23 @@ var AppComponent = /** @class */ (function () {
     AppComponent.prototype.calculate = function () {
         this.tomesNeeded = 0;
         this.scrollsNeeded = 0;
-        for (var i = this.force; i < this.wantTo; i++) {
+        var wantToRank = +this.wantTo;
+        for (var i = +this.force; i < wantToRank; i++) {
             this.tomesNeeded += this.values[i - 1][1];
         }
-        for (var i = this.spirit; i < this.wantTo; i++) {
+        for (var i = +this.spirit; i < wantToRank; i++) {
             this.tomesNeeded += this.values[i - 1][1];
         }
-        for (var i = this.mind; i < this.wantTo; i++) {
+        for (var i = +this.mind; i < wantToRank; i++) {
             this.scrollsNeeded += this.values[i - 1][1];
         }
-        for (var i = this.vision; i < this.wantTo; i++) {
+        for (var i = +this.vision; i < wantToRank; i++) {
             this.scrollsNeeded += this.values[i - 1][1];
         }
-        for (var i = this.heart; i < this.wantTo; i++) {
+        for (var i = +this.heart; i < wantToRank; i++) {
             this.scrollsNeeded += this.values[i - 1][1];
         }
-        for (var i = this.root; i < this.wantTo; i++) {
+        for (var i = +this.root; i < wantToRank; i++) {
             this.scrollsNeeded += this.values[i - 1][1];
         }
         this.remainingScrollsDays = (this.scrollsNeeded / SUNTRADAY).toFixed(0);
@@ -6676,7 +6677,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\temp\EC\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! C:\Dev\enlighten-calculator\src\main.ts */"./src/main.ts");
 
 
 /***/ })
