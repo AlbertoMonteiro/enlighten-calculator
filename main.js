@@ -6392,7 +6392,7 @@ module.exports = "p {\r\n  font-family: Lato;\r\n}\r\n/*# sourceMappingURL=data:
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\r\n    <div class=\"row\">\r\n        <div class=\"col-sm-12\">\r\n            <table class=\"table table-bordered table-sm table-striped table-hover\">\r\n                <thead>\r\n                    <tr>\r\n                        <th colspan=\"2\" class=\"text-center\">Archaic Tomes</th>\r\n                        <th colspan=\"4\" class=\"text-center\">Sutra Scrolls</th>\r\n                    </tr>\r\n                    <tr>\r\n                        <th>Force</th>\r\n                        <th>HP</th>\r\n                        <th>Mind</th>\r\n                        <th>Vision</th>\r\n                        <th>Heart</th>\r\n                        <th>Root</th>\r\n                    </tr>\r\n                </thead>\r\n                <tbody>\r\n                    <tr>\r\n                        <td>\r\n                            <select class=\"form-control\" [(ngModel)]=\"force\">\r\n                                <option *ngFor=\"let item of ranks; let i=index\" value=\"{{i}}\">Rank {{i}}</option>\r\n                            </select>\r\n                        </td>\r\n                        <td>\r\n                            <select class=\"form-control\" [(ngModel)]=\"spirit\">\r\n                                <option *ngFor=\"let item of ranks; let i=index\" value=\"{{i}}\">Rank {{i}}</option>\r\n                            </select>\r\n                        </td>\r\n                        <td>\r\n                            <select class=\"form-control\" [(ngModel)]=\"mind\">\r\n                                <option *ngFor=\"let item of ranks; let i=index\" value=\"{{i}}\">Rank {{i}}</option>\r\n                            </select>\r\n                        </td>\r\n                        <td>\r\n                            <select class=\"form-control\" [(ngModel)]=\"vision\">\r\n                                <option *ngFor=\"let item of ranks; let i=index\" value=\"{{i}}\">Rank {{i}}</option>\r\n                            </select>\r\n                        </td>\r\n                        <td>\r\n                            <select class=\"form-control\" [(ngModel)]=\"heart\">\r\n                                <option *ngFor=\"let item of ranks; let i=index\" value=\"{{i}}\">Rank {{i}}</option>\r\n                            </select>\r\n                        </td>\r\n                        <td>\r\n                            <select class=\"form-control\" [(ngModel)]=\"root\">\r\n                                <option *ngFor=\"let item of ranks; let i=index\" value=\"{{i}}\">Rank {{i}}</option>\r\n                            </select>\r\n                        </td>\r\n                    </tr>\r\n                </tbody>\r\n            </table>\r\n        </div>\r\n\r\n        <div class=\"col-md-4 col-sm-12\">\r\n            <label>Do you have some?</label>\r\n            <table class=\"table table-bordered table-sm table-striped table-hover\">\r\n                <thead>\r\n                    <tr>\r\n                        <th>Item</th>\r\n                        <th>Total</th>\r\n                    </tr>\r\n                </thead>\r\n                <tbody>\r\n                    <tr>\r\n                        <td>Archaic Tomes</td>\r\n                        <td><input type=\"number\" class=\"form-control form-control-sm\" [(ngModel)]=\"alreadyTomes\"></td>\r\n                    </tr>\r\n                    <tr>\r\n                        <td>Sutra Scrolls</td>\r\n                        <td><input type=\"number\" class=\"form-control form-control-sm\" [(ngModel)]=\"alreadyScrolls\"></td>\r\n                    </tr>\r\n                </tbody>\r\n            </table>\r\n        </div>\r\n\r\n        <div class=\"col-md-4 col-sm-12\">\r\n            <fieldset>\r\n                <div class=\"form-group\">\r\n                    <label for=\"exampleInputEmail1\">What rank you want to be</label>\r\n                    <select class=\"form-control\" [(ngModel)]=\"wantTo\">\r\n                        <option value=\"1\">Rank 1</option>\r\n                        <option value=\"2\">Rank 2</option>\r\n                        <option value=\"3\">Rank 3</option>\r\n                        <option value=\"4\">Rank 4</option>\r\n                        <option value=\"5\">Rank 5</option>\r\n                        <option value=\"6\">Rank 6</option>\r\n                        <option value=\"7\">Rank 7</option>\r\n                        <option value=\"8\">Rank 8</option>\r\n                        <option value=\"9\">Rank 9</option>\r\n                        <option value=\"10\">Rank 10</option>\r\n                        <option value=\"11\">Rank 11</option>\r\n                        <option value=\"12\">Rank 12</option>\r\n                        <option value=\"13\">Rank 13</option>\r\n                        <option value=\"14\">Rank 14</option>\r\n                        <option value=\"15\">Rank 15</option>\r\n                    </select>\r\n                </div>\r\n                <button type=\"submit\" class=\"btn btn-primary\" (click)=\"calculate()\">Calculate</button>\r\n            </fieldset>\r\n        </div>\r\n\r\n        <div class=\"col-md-4 col-sm-12\">\r\n            <label>Result</label>\r\n            <table class=\"table table-bordered table-sm table-striped table-hover\">\r\n                <thead>\r\n                    <tr>\r\n                        <th>Item</th>\r\n                        <th>Total</th>\r\n                    </tr>\r\n                </thead>\r\n                <tbody>\r\n                    <tr>\r\n                        <td>Archaic Tomes</td>\r\n                        <ng-container *ngIf=\"+alreadyTomes == 0; else elseTemplateTomes\">\r\n                            <td>{{tomesNeeded}} (left {{remainingTomesDays}} days)</td>\r\n                        </ng-container>\r\n                        <ng-template #elseTemplateTomes>\r\n                            <td>{{tomesNeeded}} - {{alreadyTomes}} = {{remainingTomes}} (left\r\n                                {{remainingTomesDays}} days)</td>\r\n                        </ng-template>\r\n                    </tr>\r\n                    <tr>\r\n                        <td>Sutra Scrolls</td>\r\n                        <ng-container *ngIf=\"+alreadyScrolls == 0; else elseTemplateScrolls\">\r\n                            <td>{{scrollsNeeded}} (left {{remainingScrollsDays}} days)</td>\r\n                        </ng-container>\r\n                        <ng-template #elseTemplateScrolls>\r\n                            <td>{{scrollsNeeded}} - {{alreadyScrolls}} = {{remainingScrolls}} (left\r\n                                {{remainingScrollsDays}} days)</td>\r\n                        </ng-template>\r\n\r\n                    </tr>\r\n                </tbody>\r\n            </table>\r\n        </div>\r\n        <div class=\"col-sm-12\">\r\n            <div class=\"alert alert-info\" role=\"alert\">\r\n                You get 15 Suntra Scrolls in activity chests, so each day you can get 15 Suntra Scrolls\r\n                <hr>\r\n                You get 8 Archaic Tomes in Victory Road and 12 in Groud Raid/Swamp, those events generally occurs in\r\n                same week, so you can get 20 Tomes each week(7 days)\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>"
+module.exports = "<div class=\"container\">\r\n    <div class=\"row\">\r\n        <div class=\"col-sm-12\">\r\n            <table class=\"table table-bordered table-sm table-striped table-hover\">\r\n                <thead>\r\n                    <tr>\r\n                        <th colspan=\"2\" class=\"text-center\">\r\n                            Archaic Tomes\r\n                            <select class=\"form-control\" [(ngModel)]=\"allArchaic\" (change)=\"setArchaicTomes(allArchaic)\">\r\n                                <option *ngFor=\"let item of levels\" value=\"{{item}}\">Rank {{item}}</option>\r\n                            </select>\r\n                        </th>\r\n                        <th colspan=\"4\" class=\"text-center\">\r\n                            Sutra Scrolls\r\n                            <select class=\"form-control\" [(ngModel)]=\"allSuntra\" (change)=\"setSuntraScrolls(allSuntra)\">\r\n                                <option *ngFor=\"let item of levels\" value=\"{{item}}\">Rank {{item}}</option>\r\n                            </select>\r\n                        </th>\r\n                    </tr>\r\n                    <tr>\r\n                        <th>Force</th>\r\n                        <th>HP</th>\r\n                        <th>Mind</th>\r\n                        <th>Vision</th>\r\n                        <th>Heart</th>\r\n                        <th>Root</th>\r\n                    </tr>\r\n                </thead>\r\n                <tbody>\r\n                    <tr>\r\n                        <td>\r\n                            <select class=\"form-control\" [(ngModel)]=\"force\">\r\n                                <option *ngFor=\"let item of levels\" value=\"{{item}}\">Rank {{item}}</option>\r\n                            </select>\r\n                        </td>\r\n                        <td>\r\n                            <select class=\"form-control\" [(ngModel)]=\"spirit\">\r\n                                <option *ngFor=\"let item of levels\" value=\"{{item}}\">Rank {{item}}</option>\r\n                            </select>\r\n                        </td>\r\n                        <td>\r\n                            <select class=\"form-control\" [(ngModel)]=\"mind\">\r\n                                <option *ngFor=\"let item of levels\" value=\"{{item}}\">Rank {{item}}</option>\r\n                            </select>\r\n                        </td>\r\n                        <td>\r\n                            <select class=\"form-control\" [(ngModel)]=\"vision\">\r\n                                <option *ngFor=\"let item of levels\" value=\"{{item}}\">Rank {{item}}</option>\r\n                            </select>\r\n                        </td>\r\n                        <td>\r\n                            <select class=\"form-control\" [(ngModel)]=\"heart\">\r\n                                <option *ngFor=\"let item of levels\" value=\"{{item}}\">Rank {{item}}</option>\r\n                            </select>\r\n                        </td>\r\n                        <td>\r\n                            <select class=\"form-control\" [(ngModel)]=\"root\">\r\n                                <option *ngFor=\"let item of levels\" value=\"{{item}}\">Rank {{item}}</option>\r\n                            </select>\r\n                        </td>\r\n                    </tr>\r\n                </tbody>\r\n            </table>\r\n        </div>\r\n        <div class=\"col-sm-6\">\r\n            <fieldset>\r\n\r\n                <div class=\"form-group\">\r\n                    <label for=\"exampleInputEmail1\">What rank you want to be</label>\r\n                    <select class=\"form-control\" [(ngModel)]=\"wantTo\">\r\n                        <option *ngFor=\"let item of levels\" value=\"{{item}}\">Rank {{item}}</option>\r\n                    </select>\r\n                </div>\r\n                <button type=\"submit\" class=\"btn btn-primary\" (click)=\"calculate()\">Calculate</button>\r\n            </fieldset>\r\n        </div>\r\n        <div class=\"col-sm-6\">\r\n            <table class=\"table table-bordered table-sm table-striped table-hover\">\r\n                <thead>\r\n                    <tr>\r\n                        <th>Item</th>\r\n                        <th>Total</th>\r\n                    </tr>\r\n                </thead>\r\n                <tbody>\r\n                    <tr>\r\n                        <td>Archaic Tomes</td>\r\n                        <td>{{tomesNeeded}} (left {{remainingTomesDays}} days)</td>\r\n                    </tr>\r\n                    <tr>\r\n                        <td>Sutra Scrolls</td>\r\n                        <td>{{scrollsNeeded}} (left {{remainingScrollsDays}} days)</td>\r\n                    </tr>\r\n                </tbody>\r\n            </table>\r\n        </div>\r\n        <div class=\"col-sm-12\">\r\n            <div class=\"alert alert-info\" role=\"alert\">\r\n                You get 15 Suntra Scrolls in activity chests, so each day you can get 15 Suntra Scrolls\r\n                <hr>\r\n                You get 8 Archaic Tomes in Victory Road and 12 in Groud Raid/Swamp, those events generally occurs in\r\n                same week, so you can get 20 Tomes each week(7 days)\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>"
 
 /***/ }),
 
@@ -6416,23 +6416,24 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 var TOMESWEEK = 20;
 var SUNTRADAY = 15;
+var LEVELS = Array.from({ length: 15 }, function (_value, key) { return key + 1; });
 var AppComponent = /** @class */ (function () {
     function AppComponent() {
         this.name = 'Angular';
-        this.force = 0;
-        this.spirit = 0;
-        this.mind = 0;
-        this.vision = 0;
-        this.heart = 0;
-        this.root = 0;
+        this.allArchaic = 1;
+        this.allSuntra = 1;
+        this.force = 1;
+        this.spirit = 1;
+        this.mind = 1;
+        this.vision = 1;
+        this.heart = 1;
+        this.root = 1;
         this.wantTo = 1;
         this.tomesNeeded = 0;
         this.scrollsNeeded = 0;
-        this.alreadyTomes = 0;
-        this.alreadyScrolls = 0;
         this.remainingScrollsDays = "0";
         this.remainingTomesDays = "0";
-        this.ranks = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+        this.levels = LEVELS;
         this.values = [
             [8, 4],
             [10, 5],
@@ -6456,27 +6457,35 @@ var AppComponent = /** @class */ (function () {
         this.scrollsNeeded = 0;
         var wantToRank = +this.wantTo;
         for (var i = +this.force; i < wantToRank; i++) {
-            this.tomesNeeded += this.values[i][1];
+            this.tomesNeeded += this.values[i - 1][1];
         }
         for (var i = +this.spirit; i < wantToRank; i++) {
-            this.tomesNeeded += this.values[i][1];
+            this.tomesNeeded += this.values[i - 1][1];
         }
         for (var i = +this.mind; i < wantToRank; i++) {
-            this.scrollsNeeded += this.values[i][0];
+            this.scrollsNeeded += this.values[i - 1][1];
         }
         for (var i = +this.vision; i < wantToRank; i++) {
-            this.scrollsNeeded += this.values[i][0];
+            this.scrollsNeeded += this.values[i - 1][1];
         }
         for (var i = +this.heart; i < wantToRank; i++) {
-            this.scrollsNeeded += this.values[i][0];
+            this.scrollsNeeded += this.values[i - 1][1];
         }
         for (var i = +this.root; i < wantToRank; i++) {
-            this.scrollsNeeded += this.values[i][0];
+            this.scrollsNeeded += this.values[i - 1][1];
         }
-        this.remainingScrolls = Math.max(this.scrollsNeeded - this.alreadyScrolls, 0);
-        this.remainingScrollsDays = (this.remainingScrolls > 0 ? Math.max(1, this.remainingScrolls / SUNTRADAY) : 0).toFixed(0);
-        this.remainingTomes = Math.max(this.tomesNeeded - this.alreadyTomes, 0);
-        this.remainingTomesDays = Math.max(7, (this.remainingTomes / TOMESWEEK * 7)).toFixed(0);
+        this.remainingScrollsDays = (this.scrollsNeeded / SUNTRADAY).toFixed(0);
+        this.remainingTomesDays = Math.max(7, (this.tomesNeeded / TOMESWEEK * 7)).toFixed(0);
+    };
+    AppComponent.prototype.setSuntraScrolls = function (e) {
+        this.mind = +e;
+        this.vision = +e;
+        this.heart = +e;
+        this.root = +e;
+    };
+    AppComponent.prototype.setArchaicTomes = function (e) {
+        this.force = +e;
+        this.spirit = +e;
     };
     AppComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -6683,7 +6692,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Dev\enlighten-calculator\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! C:\dev\enlighten-calculator\src\main.ts */"./src/main.ts");
 
 
 /***/ })
