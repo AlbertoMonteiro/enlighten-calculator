@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
+import { ThrowStmt } from '@angular/compiler';
 
 const TOMESWEEK = 20;
 const SUNTRADAY = 15;
+const LEVELS = Array.from({ length: 15 }, (_value, key) => key + 1);
 
 @Component({
   selector: 'my-app',
@@ -10,6 +12,8 @@ const SUNTRADAY = 15;
 })
 export class AppComponent {
   name = 'Angular';
+  allArchaic = 1;
+  allSuntra = 1;
   force = 1;
   spirit = 1;
   mind = 1;
@@ -21,6 +25,7 @@ export class AppComponent {
   scrollsNeeded = 0;
   remainingScrollsDays = "0";
   remainingTomesDays = "0";
+  levels = LEVELS;
 
   private values = [
     [8, 4],
@@ -35,6 +40,7 @@ export class AppComponent {
     [32, 16],
     [36, 18],
     [44, 22],
+    [52, 26],
     [60, 30],
     [68, 34]
   ];
@@ -62,6 +68,18 @@ export class AppComponent {
       this.scrollsNeeded += this.values[i - 1][1];
     }
     this.remainingScrollsDays = (this.scrollsNeeded / SUNTRADAY).toFixed(0);
-    this.remainingTomesDays = Math.max(7,(this.tomesNeeded / TOMESWEEK * 7)).toFixed(0);
+    this.remainingTomesDays = Math.max(7, (this.tomesNeeded / TOMESWEEK * 7)).toFixed(0);
+  }
+
+  setSuntraScrolls(e) {
+    this.mind = +e;
+    this.vision = +e;
+    this.heart = +e;
+    this.root = +e;
+  }
+
+  setArchaicTomes(e) {
+    this.force = +e;
+    this.spirit = +e;
   }
 }

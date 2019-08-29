@@ -1,135 +1,61 @@
 <div class="container">
-	<div class="row">
-		<div class="col-sm-12">
-			<table class="table table-bordered table-sm table-striped table-hover">
-				<thead>
-					<tr>
-						<th colspan="2" class="text-center">Archaic Tomes</th>
-						<th colspan="4" class="text-center">Sutra Scrolls</th>
-					</tr>
-					<tr>
-						<th>Force</th>
-						<th>HP</th>
-						<th>Mind</th>
-						<th>Vision</th>
-						<th>Heart</th>
-						<th>Root</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>
-							<select  class="form-control" [(ngModel)]="force">
-                                <option value="1">Rank 1</option>
-                                <option value="2">Rank 2</option>
-                                <option value="3">Rank 3</option>
-                                <option value="4">Rank 4</option>
-                                <option value="5">Rank 5</option>
-                                <option value="6">Rank 6</option>
-                                <option value="7">Rank 7</option>
-                                <option value="8">Rank 8</option>
-                                <option value="9">Rank 9</option>
-                                <option value="10">Rank 10</option>
-                                <option value="11">Rank 11</option>
-                                <option value="12">Rank 12</option>
-                                <option value="13">Rank 13</option>
-                                <option value="14">Rank 14</option>
-                                <option value="15">Rank 15</option>
+    <div class="row">
+        <div class="col-sm-12">
+            <table class="table table-bordered table-sm table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th colspan="2" class="text-center">
+                            Archaic Tomes
+                            <select class="form-control" [(ngModel)]="allArchaic" (change)="setArchaicTomes(allArchaic)">
+                                <option *ngFor="let item of levels" value="{{item}}">Rank {{item}}</option>
+                            </select>
+                        </th>
+                        <th colspan="4" class="text-center">
+                            Sutra Scrolls
+                            <select class="form-control" [(ngModel)]="allSuntra" (change)="setSuntraScrolls(allSuntra)">
+                                <option *ngFor="let item of levels" value="{{item}}">Rank {{item}}</option>
+                            </select>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>Force</th>
+                        <th>HP</th>
+                        <th>Mind</th>
+                        <th>Vision</th>
+                        <th>Heart</th>
+                        <th>Root</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <select class="form-control" [(ngModel)]="force">
+                                <option *ngFor="let item of levels" value="{{item}}">Rank {{item}}</option>
                             </select>
                         </td>
                         <td>
-                            <select  class="form-control" [(ngModel)]="spirit">
-                                <option value="1">Rank 1</option>
-                                <option value="2">Rank 2</option>
-                                <option value="3">Rank 3</option>
-                                <option value="4">Rank 4</option>
-                                <option value="5">Rank 5</option>
-                                <option value="6">Rank 6</option>
-                                <option value="7">Rank 7</option>
-                                <option value="8">Rank 8</option>
-                                <option value="9">Rank 9</option>
-                                <option value="10">Rank 10</option>
-                                <option value="11">Rank 11</option>
-                                <option value="12">Rank 12</option>
-                                <option value="13">Rank 13</option>
-                                <option value="14">Rank 14</option>
-                                <option value="15">Rank 15</option>
+                            <select class="form-control" [(ngModel)]="spirit">
+                                <option *ngFor="let item of levels" value="{{item}}">Rank {{item}}</option>
                             </select>
                         </td>
                         <td>
-                            <select  class="form-control" [(ngModel)]="mind">
-                                <option value="1">Rank 1</option>
-                                <option value="2">Rank 2</option>
-                                <option value="3">Rank 3</option>
-                                <option value="4">Rank 4</option>
-                                <option value="5">Rank 5</option>
-                                <option value="6">Rank 6</option>
-                                <option value="7">Rank 7</option>
-                                <option value="8">Rank 8</option>
-                                <option value="9">Rank 9</option>
-                                <option value="10">Rank 10</option>
-                                <option value="11">Rank 11</option>
-                                <option value="12">Rank 12</option>
-                                <option value="13">Rank 13</option>
-                                <option value="14">Rank 14</option>
-                                <option value="15">Rank 15</option>
+                            <select class="form-control" [(ngModel)]="mind">
+                                <option *ngFor="let item of levels" value="{{item}}">Rank {{item}}</option>
                             </select>
                         </td>
                         <td>
-                            <select  class="form-control" [(ngModel)]="vision">
-                                <option value="1">Rank 1</option>
-                                <option value="2">Rank 2</option>
-                                <option value="3">Rank 3</option>
-                                <option value="4">Rank 4</option>
-                                <option value="5">Rank 5</option>
-                                <option value="6">Rank 6</option>
-                                <option value="7">Rank 7</option>
-                                <option value="8">Rank 8</option>
-                                <option value="9">Rank 9</option>
-                                <option value="10">Rank 10</option>
-                                <option value="11">Rank 11</option>
-                                <option value="12">Rank 12</option>
-                                <option value="13">Rank 13</option>
-                                <option value="14">Rank 14</option>
-                                <option value="15">Rank 15</option>
+                            <select class="form-control" [(ngModel)]="vision">
+                                <option *ngFor="let item of levels" value="{{item}}">Rank {{item}}</option>
                             </select>
                         </td>
                         <td>
-                            <select  class="form-control" [(ngModel)]="heart">
-                                <option value="1">Rank 1</option>
-                                <option value="2">Rank 2</option>
-                                <option value="3">Rank 3</option>
-                                <option value="4">Rank 4</option>
-                                <option value="5">Rank 5</option>
-                                <option value="6">Rank 6</option>
-                                <option value="7">Rank 7</option>
-                                <option value="8">Rank 8</option>
-                                <option value="9">Rank 9</option>
-                                <option value="10">Rank 10</option>
-                                <option value="11">Rank 11</option>
-                                <option value="12">Rank 12</option>
-                                <option value="13">Rank 13</option>
-                                <option value="14">Rank 14</option>
-                                <option value="15">Rank 15</option>
+                            <select class="form-control" [(ngModel)]="heart">
+                                <option *ngFor="let item of levels" value="{{item}}">Rank {{item}}</option>
                             </select>
                         </td>
                         <td>
-                            <select  class="form-control" [(ngModel)]="root">
-                                <option value="1">Rank 1</option>
-                                <option value="2">Rank 2</option>
-                                <option value="3">Rank 3</option>
-                                <option value="4">Rank 4</option>
-                                <option value="5">Rank 5</option>
-                                <option value="6">Rank 6</option>
-                                <option value="7">Rank 7</option>
-                                <option value="8">Rank 8</option>
-                                <option value="9">Rank 9</option>
-                                <option value="10">Rank 10</option>
-                                <option value="11">Rank 11</option>
-                                <option value="12">Rank 12</option>
-                                <option value="13">Rank 13</option>
-                                <option value="14">Rank 14</option>
-                                <option value="15">Rank 15</option>
+                            <select class="form-control" [(ngModel)]="root">
+                                <option *ngFor="let item of levels" value="{{item}}">Rank {{item}}</option>
                             </select>
                         </td>
                     </tr>
@@ -142,21 +68,7 @@
                 <div class="form-group">
                     <label for="exampleInputEmail1">What rank you want to be</label>
                     <select class="form-control" [(ngModel)]="wantTo">
-                        <option value="1">Rank 1</option>
-                        <option value="2">Rank 2</option>
-                        <option value="3">Rank 3</option>
-                        <option value="4">Rank 4</option>
-                        <option value="5">Rank 5</option>
-                        <option value="6">Rank 6</option>
-                        <option value="7">Rank 7</option>
-                        <option value="8">Rank 8</option>
-                        <option value="9">Rank 9</option>
-                        <option value="10">Rank 10</option>
-                        <option value="11">Rank 11</option>
-                        <option value="12">Rank 12</option>
-                        <option value="13">Rank 13</option>
-                        <option value="14">Rank 14</option>
-                        <option value="15">Rank 15</option>
+                        <option *ngFor="let item of levels" value="{{item}}">Rank {{item}}</option>
                     </select>
                 </div>
                 <button type="submit" class="btn btn-primary" (click)="calculate()">Calculate</button>
@@ -183,11 +95,12 @@
             </table>
         </div>
         <div class="col-sm-12">
-          <div class="alert alert-info" role="alert">
-            You get 15 Suntra Scrolls in activity chests, so each day you can get 15 Suntra Scrolls
-            <hr>
-            You get 8 Archaic Tomes in Victory Road and 12 in Groud Raid/Swamp, those events generally occurs in same week, so you can get 20 Tomes each week(7 days)
-          </div>
+            <div class="alert alert-info" role="alert">
+                You get 15 Suntra Scrolls in activity chests, so each day you can get 15 Suntra Scrolls
+                <hr>
+                You get 8 Archaic Tomes in Victory Road and 12 in Groud Raid/Swamp, those events generally occurs in
+                same week, so you can get 20 Tomes each week(7 days)
+            </div>
         </div>
     </div>
 </div>
